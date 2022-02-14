@@ -1,4 +1,5 @@
 from flask import Flask # Flask is a framework for designing websites # we'll write everything here in one file
+from flask import render_template # Render template function to render a page from a template 
 app = Flask(__name__)  # Note the double underscores on each side!
 
 # This is the file that will serve as your application’s “backend,” routing data to the appropriate pages.
