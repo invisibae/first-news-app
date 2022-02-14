@@ -6,6 +6,8 @@ app = Flask(__name__)  # Note the double underscores on each side!
 def get_csv(): # define csv file path
     csv_path = './static/la-riots-deaths.csv'
     csv_file = open(csv_path, 'r')
+    csv_obj = csv.DictReader(csv_file)
+    csv_list = list(csv_obj)
 
 
 # This is the file that will serve as your application’s “backend,” routing data to the appropriate pages.
