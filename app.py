@@ -16,6 +16,8 @@ def get_csv(): # define csv file path
 def index(): # Then create a function called index that returns our rendered index.html template
     template = 'index.html'
     return render_template(template)
+    object_list = get_csv() # call the function that we created above
+    return render_template(template, object_list=object_list) # here, it'll return a list of csv
 
 
 if __name__ == '__main__':
