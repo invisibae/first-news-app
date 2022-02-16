@@ -27,7 +27,7 @@ def detail(row_id): # creates a detail function
     for row in object_list:     #following function matches each row's id against the 'row_id' provided by the url.
         if row['id'] == row_id: # When you find a match, pass that row out to the template for rendering with the name 'object'
             return render_template(template, object=row)
-
+    abort(404)
 
 
 
