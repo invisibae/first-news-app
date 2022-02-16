@@ -18,6 +18,13 @@ def index(): # Then create a function called index that returns our rendered ind
     object_list = get_csv() # call the function that we created above
     return render_template(template, object_list=object_list) # here, it'll return a list of csv
 
+# Following code block creates a 'details' page for each person
+@app.route('/<row_id>/')
+def detail(row_id):
+    template = 'detail.html'
+    return render_template(template, row_id=row_id)
+
+
 
 if __name__ == '__main__':
     # Fire up the Flask test server
