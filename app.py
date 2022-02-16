@@ -1,5 +1,6 @@
 import csv # import csv
 from flask import Flask # Flask is a framework for designing websites # we'll write everything here in one file
+from flask import abort # returns a 404 page
 from flask import render_template # Render template function to render a page from a template
 app = Flask(__name__)  # Note the double underscores on each side!
 
@@ -26,7 +27,7 @@ def detail(row_id): # creates a detail function
     for row in object_list:     #following function matches each row's id against the 'row_id' provided by the url.
         if row['id'] == row_id: # When you find a match, pass that row out to the template for rendering with the name 'object'
             return render_template(template, object=row)
-    
+
 
 
 
