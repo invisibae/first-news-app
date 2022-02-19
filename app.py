@@ -13,24 +13,23 @@ def get_csv():
 
 
 
-@app.route("/") # Now use one of Flask’s coolest tricks, the app.route decorator, to connect that function with the root URL of our site, /.
-def index(): # Then create a function called index that returns our rendered index.html file and puts it on our "site"
+@app.route("/")
+def index():
     template = 'index.html'
-    object_list = get_csv() # call the function that we created above
-    return render_template(template, object_list=object_list) # here, it'll return a list of csv
+    object_list = get_csv()
+    return render_template(template, object_list=object_list)
 
-# Following code block creates a 'details' page for each person
 @app.route('/<row_id>/')
-def detail(row_id): # creates a detail function
-    template = 'detail.html' # uses our detail.html file as its face
-    object_list = get_csv() # pull csv
-    for row in object_list:     #following function matches each row's id against the 'row_id' provided by the url.
-        if row['id'] == row_id: # When you find a match, pass that row out to the template for rendering with the name 'object'
+def detail(row_id):
+    template = 'detail.html'
+    object_list = get_csv()
+    for row in object_list:
+        if row['id'] == row_id:
             return render_template(template, object=row)
     abort(404)
 
 
 
 if __name__ == '__main__':
-    # Fire up the Flask test server
+    
     app.run(debug=True, use_reloader=True)
