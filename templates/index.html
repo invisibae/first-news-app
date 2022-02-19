@@ -1,20 +1,19 @@
-<!--This is a test html doc--!>
+
 
 <!doctype html>
 <html lang="en">
 <head>
-<!-- add java elements to the head --!>
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 </head>
     <body>
-        <!--div for our overview map to live in --!>
+
         <div id="map" style="width:100%; height:300px;"></div>
         <h1>Deaths during the L.A. riots</h1>
 
 
-<!--Add table using flask template language to ciycle through object list--!>
-<!-- This turns each name in our object list into an html table row--!>
+
 <table border=1 cellpadding=7>
     <tr>
         <th>Name</th>
@@ -27,7 +26,7 @@
     </tr>
     {% for obj in object_list %}
     <tr>
-<!--Add a hyperlink to each name that links to the detail page  --!>
+
         <td><a href="{{ obj.id }}/">{{ obj.full_name }}</a></td>
         <td>{{ obj.date }}</td>
         <td>{{ obj.type }}</td>
@@ -76,4 +75,3 @@
     </script>
 </body>
 </html>
-<!--This will serve as our template moving forward--!>
