@@ -12,7 +12,7 @@ def get_csv():
     return csv_list
 
 
-# This is the file that will serve as your application’s “backend,” routing data to the appropriate pages.
+
 @app.route("/") # Now use one of Flask’s coolest tricks, the app.route decorator, to connect that function with the root URL of our site, /.
 def index(): # Then create a function called index that returns our rendered index.html file and puts it on our "site"
     template = 'index.html'
