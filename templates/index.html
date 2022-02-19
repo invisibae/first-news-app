@@ -66,7 +66,16 @@
                 {% endfor %}
               ]
             };
+            var blackIcon = L.Icon.extend({
+                options: {
+                    iconUrl: "{{ url_for('static', filename='marker-24.png') }}",
+                    iconSize: [24, 24]
+                }
+            });
             var dataLayer = L.geoJson(data, {
+                pointToLayer: function (feature, latlng) {
+                    return L.marker(latlng, {icon: new blackIcon()});
+                },
                 onEachFeature: function(feature, layer) {
                     layer.bindPopup(
                         '<a href="' + feature.properties.id + '/">' +
