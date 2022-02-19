@@ -1,14 +1,14 @@
-import csv # import csv
-from flask import Flask # Flask is a framework for designing websites # we'll write everything here in one file
-from flask import abort # returns a 404 page
-from flask import render_template # Render template function to render a page from a template
-app = Flask(__name__)  # Note the double underscores on each side!
+import csv
+from flask import Flask
+from flask import abort
+from flask import render_template
+app = Flask(__name__)
 
 def get_csv():
-    csv_path = './static/la-riots-deaths.csv' # define csv file path
-    csv_file = open(csv_path, 'r') # open and read csv
-    csv_obj = csv.DictReader(csv_file) # takes each row in the csv and turns it into a dictionary
-    csv_list = list(csv_obj) # convert to a permanent list
+    csv_path = './static/la-riots-deaths.csv'
+    csv_file = open(csv_path, 'r')
+    csv_obj = csv.DictReader(csv_file)
+    csv_list = list(csv_obj) 
     return csv_list
 
 
@@ -31,5 +31,5 @@ def detail(row_id):
 
 
 if __name__ == '__main__':
-    
+
     app.run(debug=True, use_reloader=True)
